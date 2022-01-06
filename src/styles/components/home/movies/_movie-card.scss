@@ -195,11 +195,13 @@
         
         .movie-card__outline-icon {
             display: none;
+            transition: 300ms ease opacity;
         }
 
         .movie-card__filled-icon {
             opacity: 1;
             position: initial;
+            transition: 300ms ease opacity;
         }
     }
 }
