@@ -41,9 +41,9 @@
     cursor: pointer;
     font-size: 18px;
     font-weight: 400;
+    height: 56px;
+    max-width: 248px;
     letter-spacing: 4px;
-    max-width: 258px;
-    padding: 1rem;
     width: 100%;
     transition: 300ms ease all;
 
@@ -243,6 +243,11 @@
     display: none;
 }
 
+.add-movie__buttons {
+    max-width: 248px;
+    width: 100%;
+}
+
 @media (max-width: $sm) {
     .add-movie__container {
         max-height: 100vh;
@@ -307,7 +312,6 @@
         display: flex;
         gap: 10px;
         margin-top: 1rem;
-        width: 100%;
 
         button {
             margin-top: 0;
