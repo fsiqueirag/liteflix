@@ -27,9 +27,10 @@
     
 
     h3 {
+        display: block;
         font-size: 16px;
         font-weight: 300;
-        display: block;
+        line-height: 16px;
         position: relative;
         text-align: left;
         transition: 300ms ease all;
@@ -78,7 +79,7 @@
 
         .movie-card__title-container {
             bottom: 0;
-            height: calc(50% + 9.5px);
+            height: calc(50% + 8px);
             left: 55px;
 
             transition: 300ms 100ms ease-in-out all;
