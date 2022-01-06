@@ -158,6 +158,10 @@
     text-align: left;
     width: 100%;
 
+    p {
+        margin-bottom: 0.9rem;
+    }
+
     button, .add-movie__ready {
         animation: fadein 200ms ease-in-out backwards;
         background: none;
