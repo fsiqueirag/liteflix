@@ -170,7 +170,7 @@
         height: 20px;
         left: 1px;
         position: relative;
-        transition: 200ms ease all;
+        transition: 300ms 100ms ease all;
         width: 20px;
 
     }
@@ -179,22 +179,28 @@
         color: $black;
         opacity: 0;
         position: fixed;
-        transition: 300ms ease opacity;
-        
+        transition: 300ms 100ms ease opacity;
+    }
+
+    .movie-card__outline-icon {
+        opacity: 1;
+        position: initial;
+        transition: 300ms 100ms ease opacity;
     }
 
 
     &:hover {
         background-color: $primary;
         border: 1px $black solid;
-        color: $black;  
 
         ion-icon {
             margin: auto;
+            transition: 300ms ease all;
         }
         
         .movie-card__outline-icon {
-            display: none;
+            opacity: 0;
+            position: fixed;
             transition: 300ms ease opacity;
         }
 
