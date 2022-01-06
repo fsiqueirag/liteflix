@@ -329,19 +329,19 @@
 }
 
 .movies__card-container-fast-0 {
-    @include cards-animation(0s, 600ms, fadedown);
+    @include cards-animation(0s, 600ms, fadein);
 }
 
 .movies__card-container-fast-1 {
-    @include cards-animation(0.3s, 700ms, faderight);
+    @include cards-animation(0.3s, 600ms, fadein);
 }
 
 .movies__card-container-fast-2 {
-    @include cards-animation(0.6s, 800ms, fadeleft);
+    @include cards-animation(0.6s, 600ms, fadein);
 }
 
 .movies__card-container-fast-3 {
-    @include cards-animation(1s, 1s, fadeup);
+    @include cards-animation(1s, 600ms, fadein);
 }
 
 @media (max-width: $sm) {

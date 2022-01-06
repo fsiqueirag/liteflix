@@ -7,6 +7,7 @@ import { AddFile } from './AddFile';
 import { FailedUpload } from './FailedUpload';
 import { LoadingFile } from './LoadingFile';
 import { SavedMovie } from './SavedMovie';
+import { MovieUploaded } from './MovieUploaded';
 
 const initialState = {
     uploading: false,
@@ -17,7 +18,7 @@ const initialState = {
 
 export const AddMovieModal = ({ myMovies, setMyMovies }) => {
 
-    const { setShowAddMovie } = useContext(MoviesContext);
+    const { setShowAddMovieModal } = useContext(MoviesContext);
 
     const [{ uploading, uploaded, failed, saved }, dispatch] = useReducer(addMovieReducer, initialState);
 
@@ -51,10 +52,8 @@ export const AddMovieModal = ({ myMovies, setMyMovies }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const storedMovies = JSON.parse(localStorage.getItem("myMovies"));
-
-        if (storedMovies) {
-            localStorage.setItem("myMovies", JSON.stringify([...storedMovies, newMovie]));
+        if (myMovies.length > 0) {
+            localStorage.setItem("myMovies", JSON.stringify([newMovie, ...myMovies]));
             setMyMovies([newMovie, ...myMovies]);
         } else {
             localStorage.setItem("myMovies", JSON.stringify([newMovie]));
@@ -65,19 +64,18 @@ export const AddMovieModal = ({ myMovies, setMyMovies }) => {
     }
 
     const handleCloseModal = () => {
-        setShowAddMovie(false);
+        setShowAddMovieModal(false);
     }
 
     return (
         <div className="add-movie__container">
-
             <form
                 className="add-movie__card"
                 onSubmit={handleSubmit}
             >
                 <button
                     type="button"
-                    onClick={() => setShowAddMovie(false)}
+                    onClick={() => setShowAddMovieModal(false)}
                     className="add-movie__close">
                     <ion-icon name="close-outline"></ion-icon>
                 </button>
@@ -93,15 +91,7 @@ export const AddMovieModal = ({ myMovies, setMyMovies }) => {
                                     uploaded
                                         ?
                                         (
-                                            <div className="add-movie__loading-container">
-                                                <p>100% Cargado</p>
-                                                <div className="add-movie__loading-bar-container">
-                                                    <div
-                                                        className="add-movie__loading-bar"
-                                                    />
-                                                </div>
-                                                <p className="add-movie__ready">¡Listo!</p>
-                                            </div>
+                                            <MovieUploaded />
                                         )
                                         :
                                         (
@@ -125,7 +115,6 @@ export const AddMovieModal = ({ myMovies, setMyMovies }) => {
                                                         />
                                                 )
                                         )
-
                                 }
                                 <input
                                     type="text"
@@ -146,7 +135,7 @@ export const AddMovieModal = ({ myMovies, setMyMovies }) => {
                                     </button>
                                     <button
                                         type="button"
-                                        onClick={() => setShowAddMovie(false)}
+                                        onClick={() => setShowAddMovieModal(false)}
                                         className="add-movie__close-mobile"
                                     >
                                         Salir

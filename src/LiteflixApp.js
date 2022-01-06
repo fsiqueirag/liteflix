@@ -11,7 +11,7 @@ export const LiteflixApp = () => {
     const [minLoadingTime, setMinLoadingTime] = useState(true);
     const [topMovie, setTopMovie] = useState(null);
     const [popularMovies, setPopularMovies] = useState(null);
-    const [showAddMovie, setShowAddMovie] = useState(false);
+    const [showAddMovie, setShowAddMovieModal] = useState(false);
 
     useEffect(() => {
         (
@@ -21,7 +21,7 @@ export const LiteflixApp = () => {
                 }, 2000);
 
                 setLoadingMovies(true);
-                const [topMovie, popularMovies] = await fetchMovies(setTopMovie, setPopularMovies);
+                const [topMovie, popularMovies] = await fetchMovies();
                 setTopMovie(topMovie);
                 setPopularMovies(popularMovies);
                 setLoadingMovies(false);
@@ -30,7 +30,7 @@ export const LiteflixApp = () => {
     }, []);
 
     return (
-        <MoviesContext.Provider value={{setShowAddMovie, popularMovies}}
+        <MoviesContext.Provider value={{setShowAddMovieModal, popularMovies}}
         >
             {
                 loadingMovies || minLoadingTime
@@ -38,7 +38,7 @@ export const LiteflixApp = () => {
                 <MoviesLoader />
                 :
                 <div className={showAddMovie ? 'modal-open' : null}>
-                    <Navbar setShowAddMovie={setShowAddMovie} />
+                    <Navbar setShowAddMovieModal={setShowAddMovieModal} />
                     <HomeScreen topMovie={topMovie} showAddMovie={showAddMovie} />
                 </div>
             }

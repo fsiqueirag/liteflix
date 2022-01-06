@@ -42,7 +42,7 @@ export const MoviesList = ({ myMovies }) => {
             {
                 selectedCategory === 'myMovies'
                     ?
-                    myMovies.slice(Math.max(myMovies.length - 4, 0)).map((movie, index) => (
+                    myMovies.slice(0, 4).map((movie, index) => (
                         <MovieCard
                             imageUrl={movie.imageUrl}
                             title={movie.title}

@@ -13,7 +13,7 @@ export const DropdownMenu = ({ selectedCategory, setSelectedCategory, myMovies }
                 {
                     selectedCategory === 'top'
                     &&
-                    <span className="fas fa-check"></span>
+                    <span className="fas fa-check" />
                 }
             </li>
             <li
@@ -24,7 +24,7 @@ export const DropdownMenu = ({ selectedCategory, setSelectedCategory, myMovies }
                 {
                     selectedCategory === 'myMovies'
                     &&
-                    <span className="fas fa-check"></span>
+                    <span className="fas fa-check" />
                 }
             </li>
         </ul >

@@ -3,10 +3,10 @@ import menu from '../../images/icons/menu-icon.png';
 import bell from '../../images/icons/bell-icon.png';
 import profile from '../../images/avatar.png';
 
-export const Navbar = ({ setShowAddMovie }) => {
+export const Navbar = ({ setShowAddMovieModal }) => {
 
     const handleClick = () => {
-        setShowAddMovie(true);
+        setShowAddMovieModal(true);
     }
 
     return (

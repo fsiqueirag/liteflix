@@ -13,16 +13,18 @@ export const HomeScreen = ({ topMovie, showAddMovie }) => {
         const storedMovies = JSON.parse(localStorage.getItem("myMovies"));
 
         if (storedMovies) {
-            setMyMovies(storedMovies.slice(Math.max(storedMovies.length - 4, 0)));
+            setMyMovies(storedMovies);
         }
     }, []);
 
     return (
         <>
             <div className="home__container">
-                <div className="home__background-container" >
-                    <div className="home__background" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${topMovie?.backdrop_path})` }} />
-
+                <div className="home__background-container">
+                    <div
+                        className="home__background"
+                        style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${topMovie?.backdrop_path})` }}
+                    />
                 </div>
                 <main style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${topMovie?.backdrop_path})` }}>
                     <div>
