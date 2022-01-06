@@ -23,24 +23,24 @@ export const MovieCard = ({ imageUrl, title, index, cardsFirstLoad, setCardsFirs
 
     return (
         <div
-            className={`movies__card-container 
+            className={`movie-card__container 
             ${cardsFirstLoad
                     ?
-                    `movies__card-container-${index}`
+                    `movie-card__container-${index}`
                     :
-                    `movies__card-container-fast-${index}`}`
+                    `movie-card__container-fast-${index}`}`
             }
             style={{ backgroundImage: `url(${imageUrl})` }}
         >
-            <div className="movies__play-icon">
-                <div className="movies__filled-icon">
+            <div className="movie-card__play-icon">
+                <div className="movie-card__filled-icon">
                     <ion-icon name="play" />
                 </div>
-                <div className="movies__outline-icon">
+                <div className="movie-card__outline-icon">
                     <ion-icon name="play-outline" />
                 </div>
             </div>
-            <div className="movies__card-title-container">
+            <div className="movie-card__title-container">
                 <h3>
                     <span>
                         {
@@ -60,14 +60,13 @@ export const MovieCard = ({ imageUrl, title, index, cardsFirstLoad, setCardsFirs
                                     :
                                     title
                                 )
-
                         }
                     </span>
                 </h3>
             </div>
             <footer>
-                <div className="movies__rating"><span className="fas fa-star" />7.9</div>
-                <span className="movies__year">2018</span>
+                <div className="movie-card__rating"><span className="fas fa-star" />7.9</div>
+                <span className="movie-card__year">2018</span>
             </footer>
         </div>
     )

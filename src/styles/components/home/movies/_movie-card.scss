@@ -2,119 +2,7 @@
     animation: $duration $delay $name ease-in-out backwards;
 }
 
-.movies__list-container {
-    display: flex;
-    flex-direction: column;
-    float: right;
-    gap: 1.5rem;
-    height: auto;
-    padding-top: 4rem;
-    position: relative;
-}
-
-.movies__filter-button-container {
-    align-items: center;
-    animation: fadedown 400ms 1.8s ease backwards;
-    color: $white;
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-
-    span {
-        font-weight: 200;
-    }
-
-}
-
-.movies__filter-button {
-    align-items: center;
-    background: none;
-    border: none;
-    color: $white;
-    cursor: pointer;
-    display: flex;
-    gap: 10px;
-    font-size: 18px;
-    font-weight: 400;
-    justify-content: center;
-    letter-spacing: 4px;
-    position: relative;
-    transition: 200ms ease all;
-    z-index: 2;
-    
-
-    &:hover {
-        opacity: 0.7;
-    }
-
-    &.dropdown-active {
-        span.fas {
-            transform: rotateZ(-180deg);
-        }
-    }
-
-    span.fas {
-        font-size: 14px;
-        font-weight: 400;
-        transition: 200ms ease all;
-    }
-}
-
-.movies__dropdown {
-    animation: fadein 200ms ease;
-    background-color: $dark-primary;
-    color: $white;
-    left: -12px;
-    padding: 1.5rem;
-    position: absolute;
-    right: -15px;
-    top: 95px;
-    z-index: 3;
-
-    .fa-caret-up {
-        color: $dark-primary;
-        font-size: 1.5rem;
-        position: absolute;
-        right: 34px;
-        top: -14px;
-    }
-
-    li {
-        cursor: pointer;
-        display: flex;
-        font-size: 16px;
-        font-weight: 200;
-        gap: 5px;
-        justify-content: space-between;
-        transition: 200ms ease all;
-        user-select: none;
-
-        &.selected {
-            font-weight: 700;
-        }
-
-        &:hover {
-            opacity: 0.7;
-        }
-
-        .fas {
-            animation: fadein 200ms ease;
-            font-weight: 400;
-        }
-
-        &:first-of-type {
-            margin-bottom: 1rem;
-        }
-
-        &.disabled {
-            cursor: initial;
-            opacity: 0.5;
-            pointer-events: none;
-        }
-    }
-}
-
-.movies__card-container {
+.movie-card__container {
     align-items: center;
     background-position: center;
     background-repeat: no-repeat;
@@ -173,7 +61,7 @@
     &:hover {
         transform: scale(1.05);
 
-        .movies__play-icon {
+        .movie-card__play-icon {
             height: 24px;
             left: 0;
             margin-left: 10px;
@@ -187,18 +75,22 @@
             }
         }
 
-        .movies__card-title-container {
+        .movie-card__title-container {
             bottom: 0;
             height: calc(50% + 11.5px);
             left: 55px;
+
+            transition: 300ms 100ms ease-in-out all;
         }
 
         h3 {
             transform: translateX(0%);
+            transition: 300ms 100ms ease-in-out all;
 
             span {
                 transform: translateX(0%);
-            }
+                transition: 300ms 100ms ease-in-out all;
+        }
         }
     
         &::before {
@@ -208,7 +100,7 @@
         footer {
             opacity: 1;
 
-            .movies__rating, .movies__year {
+            .movie-card__rating, .movie-card__year {
                 opacity: 1;
             }
         }
@@ -229,12 +121,12 @@
         width: 100%;
         z-index: 2;
 
-        .movies__rating, .movies__year {
+        .movie-card__rating, .movie-card__year {
             opacity: 0;
             transition: 500ms 500ms ease all;
         }
 
-        .movies__rating {
+        .movie-card__rating {
             align-items: center;
             display: flex;
             gap: 3px;
@@ -248,7 +140,7 @@
     }
 }
 
-.movies__card-title-container {
+.movie-card__title-container {
     bottom: 10px;
     height: 23px;
     left: 0;
@@ -257,7 +149,7 @@
     width: 100%;
 }
 
-.movies__play-icon {
+.movie-card__play-icon {
     align-items: center;
     background-color: transparentize($color: $dark-primary, $amount: 0.5);
     border: 1px $white solid;
@@ -270,7 +162,7 @@
     padding-top: 3px;
     position: relative;
     right: 0;
-    transition: 300ms ease-in-out all;
+    transition: 300ms 100ms ease-in-out all;
     width: 40px;
     z-index: 2;
 
@@ -283,7 +175,7 @@
 
     }
 
-    .movies__filled-icon {
+    .movie-card__filled-icon {
         color: $black;
         opacity: 0;
         position: fixed;
@@ -301,78 +193,58 @@
             margin: auto;
         }
         
-        .movies__outline-icon {
+        .movie-card__outline-icon {
             display: none;
         }
 
-        .movies__filled-icon {
+        .movie-card__filled-icon {
             opacity: 1;
             position: initial;
         }
     }
 }
 
-.movies__card-container-0 {
+.movie-card__container-0 {
     @include cards-animation(2s, 600ms, fadedown);
 }
 
-.movies__card-container-1 {
+.movie-card__container-1 {
     @include cards-animation(2.3s, 700ms, faderight);
 }
 
-.movies__card-container-2 {
+.movie-card__container-2 {
     @include cards-animation(2.6s, 800ms, fadeleft);
 }
 
-.movies__card-container-3 {
+.movie-card__container-3 {
     @include cards-animation(3s, 1s, fadeup);
 }
 
-.movies__card-container-fast-0 {
+.movie-card__container-fast-0 {
     @include cards-animation(0s, 600ms, fadein);
 }
 
-.movies__card-container-fast-1 {
+.movie-card__container-fast-1 {
     @include cards-animation(0.3s, 600ms, fadein);
 }
 
-.movies__card-container-fast-2 {
+.movie-card__container-fast-2 {
     @include cards-animation(0.6s, 600ms, fadein);
 }
 
-.movies__card-container-fast-3 {
+.movie-card__container-fast-3 {
     @include cards-animation(1s, 600ms, fadein);
 }
 
 @media (max-width: $sm) {
-    .movies__list-container {
-        max-width: 350px;
-        padding: 0 1rem 2rem;
-        width: 100%;
-    }
 
-    .movies__card-container {
+    .movie-card__container {
         height: 194px;
         max-width: 350px;
         width: 100%;
     }
 
-    .movies__dropdown {
-        background-color: $dark-primary;
-        left: 15px;
-        right: 15px;
-        top: 35px;
-
-        .fa-caret-up {
-            display: none;
-        }
-    }
-
-    .movies__play-icon {
+    .movie-card__play-icon {
         left: 43%;
-    }
-
-    .movies__filter-button-container {
-        margin-bottom: 10px;
     }
 }

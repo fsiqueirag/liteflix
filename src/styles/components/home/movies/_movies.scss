@@ -1,0 +1,144 @@
+.movies__list-container {
+    display: flex;
+    flex-direction: column;
+    float: right;
+    gap: 1.5rem;
+    height: auto;
+    padding-top: 4rem;
+    position: relative;
+}
+
+.movies__filter-button-container {
+    align-items: center;
+    animation: fadedown 400ms 1.8s ease backwards;
+    color: $white;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+
+    span {
+        font-weight: 200;
+    }
+
+}
+
+.movies__filter-button {
+    align-items: center;
+    background: none;
+    border: none;
+    color: $white;
+    cursor: pointer;
+    display: flex;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 400;
+    justify-content: center;
+    letter-spacing: 4px;
+    position: relative;
+    transition: 200ms ease all;
+    z-index: 2;
+    
+
+    &:hover {
+        opacity: 0.7;
+    }
+
+    &.dropdown-active {
+        span.fas {
+            transform: rotateZ(-180deg);
+        }
+    }
+
+    span.fas {
+        font-size: 14px;
+        font-weight: 400;
+        transition: 200ms ease all;
+    }
+}
+
+.movies__dropdown {
+    animation: fadein 200ms ease;
+    background-color: $dark-primary;
+    color: $white;
+    left: -12px;
+    padding: 1.5rem;
+    position: absolute;
+    right: -15px;
+    top: 95px;
+    z-index: 3;
+
+    .fa-caret-up {
+        color: $dark-primary;
+        font-size: 1.5rem;
+        position: absolute;
+        right: 34px;
+        top: -14px;
+    }
+
+    li {
+        cursor: pointer;
+        display: flex;
+        font-size: 16px;
+        font-weight: 200;
+        gap: 5px;
+        justify-content: space-between;
+        transition: 200ms ease all;
+        user-select: none;
+
+        &.selected {
+            font-weight: 700;
+        }
+
+        &:hover {
+            opacity: 0.7;
+        }
+
+        .fas {
+            animation: fadein 200ms ease;
+            font-weight: 400;
+        }
+
+        &:first-of-type {
+            margin-bottom: 1rem;
+        }
+
+        &.disabled {
+            cursor: initial;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+    }
+}
+
+@media (max-width: $sm) {
+    .movies__list-container {
+        max-width: 350px;
+        padding: 0 1rem 2rem;
+        width: 100%;
+    }
+
+    .movies__card-container {
+        height: 194px;
+        max-width: 350px;
+        width: 100%;
+    }
+
+    .movies__dropdown {
+        background-color: $dark-primary;
+        left: 15px;
+        right: 15px;
+        top: 35px;
+
+        .fa-caret-up {
+            display: none;
+        }
+    }
+
+    .movies__play-icon {
+        left: 43%;
+    }
+
+    .movies__filter-button-container {
+        margin-bottom: 10px;
+    }
+}
