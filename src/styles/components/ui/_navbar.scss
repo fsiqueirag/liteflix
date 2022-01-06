@@ -1,0 +1,208 @@
+.navbar__container {
+    left: 0;
+    overflow: hidden;
+    padding: 30px 5%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 3;
+}
+
+.navbar__desktop, .navbar__mobile {
+    display: flex;
+    justify-content: space-between;
+    z-index: 3;
+}
+
+.navbar__mobile {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+.navbar__left {
+    align-items: center;
+    display: flex;
+    gap: 5%;
+    justify-content: space-between;
+    min-width: 350px;
+    overflow: hidden;
+
+    .navbar__profile-container {
+        animation: none;
+        opacity: 0;
+        pointer-events: none;
+        position: fixed;
+        transition: none;
+    }
+}
+
+.navbar__logo {
+    color: $primary;
+    font-size: 34px;
+    font-weight: 700;
+    overflow: hidden;
+}
+
+.navbar__logo-start {
+    animation: moveup 600ms 1s ease-in-out forwards;
+    display: inline-block;
+    transform: translateY(100px);
+}
+
+.navbar__logo-end {
+    animation: moveleft 800ms 1.2s ease forwards, fadein 1200ms 1.2s ease forwards;
+    display: inline-block;
+    font-weight: 200;
+    opacity: 0;
+}
+
+.navbar__add-movie {
+    animation: 800ms 1.5s moveup ease-in-out forwards;
+    align-items: center;
+    background: none;
+    border: 0;
+    color: $white;
+    cursor: pointer;
+    display: flex;
+    font-size: 18px;
+    font-weight: 400;
+    gap: 10px;
+    letter-spacing: 4px;
+    transform: translateY(100px);
+    transition: 200ms ease opacity;
+
+    div {
+        animation: 300ms 2.2s fadein ease-out forwards;
+        opacity: 0;
+
+        span {
+            font-weight: 200;
+            transition: 200ms ease transform;
+        }
+    }
+
+    &:hover {
+        opacity: 0.7;
+
+        span {
+            transform: scale(1.5);
+        }
+    }
+}
+
+.navbar__right {
+    align-items: center;
+    display: flex;
+    gap: 40px;
+}
+
+.navbar__menu {
+    animation: 300ms 2.4s fadein ease-out backwards;
+    cursor: pointer;
+    transition: 300ms ease-in-out all;
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+
+
+.navbar__bell-container {
+    animation: 300ms 2.6s fadein ease-out forwards;
+    cursor: pointer;
+    opacity: 0;
+
+    .navbar__bell {
+        transform: rotateZ(0deg);
+        transition: 150ms ease-in-out all;
+    }
+
+    &:hover .navbar__bell {
+        animation: bell 500ms ease-in-out forwards;
+    }
+}
+
+
+.navbar__profile-container {
+    animation: 300ms 2.8s fadein ease-out backwards;
+    border-radius: 100px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    height: 42px;
+    overflow: hidden;
+    transition: 200ms ease all;
+    width: 42px;
+
+    img {
+        min-height: 42px;
+        min-width: 42px;
+    }
+
+    &:hover {
+        border: 2px solid $primary;
+        opacity: 0.8;
+    }
+}
+
+@media (max-width: $sm) {
+    .navbar__container {
+        padding: 1rem 2rem;
+        width: 100%;
+    }
+
+    .navbar__desktop {
+        opacity: 0;
+        position: absolute;
+        z-index: -1;
+    }
+
+    .navbar__mobile {
+        justify-content: space-between;
+        opacity: 1;
+        position: initial;
+
+        .navbar__profile-container {
+            position: initial;
+            height: 36px;
+            opacity: 1;
+            width: 36px;
+        }
+    }
+
+    .navbar__add-movie {
+
+        p {
+            display: none;
+        }
+
+        div {
+            align-items: center;
+            border: 1px solid $white;
+            border-radius: 100%;
+            display: flex;
+            justify-content: center;
+            height: 36px;
+            width: 36px;
+    
+            span {
+                padding-left: 4px;
+            }
+        }
+
+        &:hover {
+            opacity: 0.7;
+
+            span {
+                transform: none;
+            }
+        }
+    }
+}
+
+@media (max-height: $xs) and (orientation: landscape) and (max-width: $sm) {
+    .navbar__logo {
+        display: none;
+    }
+}

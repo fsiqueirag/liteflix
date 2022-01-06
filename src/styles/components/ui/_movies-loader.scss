@@ -1,0 +1,23 @@
+.movies-loader__container {
+    align-items: center;
+    background-color: $dark-primary;
+    display: flex;
+    height: 100vh;
+    text-align: center;
+    width: 100vw;
+
+    .navbar__logo {
+        font-size: 55px;
+        flex: 1;
+    }
+
+    .navbar__logo-start {
+        animation: 3s loaderlite infinite;
+    }
+
+    .navbar__logo-end {
+        animation: 2s 500ms loaderflix infinite;
+        opacity: 1;
+        transform: translateY(-100px);
+    }
+}

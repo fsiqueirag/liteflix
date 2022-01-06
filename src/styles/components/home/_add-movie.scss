@@ -1,0 +1,317 @@
+.add-movie__container {
+    align-items: center;
+    animation: 200ms fadein ease-in-out;
+    background-color: transparentize($dark-primary, 0.3);
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    position: absolute;    
+    right: 0;
+    top: 0;
+    z-index: 3;
+}
+
+.add-movie__card {
+    align-items: center;
+    animation: 200ms 100ms fadein ease-in-out backwards;
+    background-color: $dark-primary;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    max-height: 440px;
+    max-width: 730px;
+    padding: 4rem 3rem 3rem;
+    position: relative;
+    text-align: center;
+    width: 100%;
+
+    h3 {
+        color: $primary;
+        font-size: 20px;
+        font-weight: 700;
+    }
+}
+
+.add-movie__submit, .add-movie__close-mobile {
+    background-color: $white;
+    border:none;
+    color: $dark-primary;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    max-width: 258px;
+    padding: 1rem;
+    width: 100%;
+    transition: 300ms ease all;
+
+    &:disabled {
+        opacity: 0.5;
+
+        &:hover {
+            cursor: initial;
+            opacity: 0.5;
+        }
+    }
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &.add-movie__uploaded {
+        animation: 300ms fadein ease-in-out;
+    }
+}
+
+.add-movie__close {
+    background: none;
+    border: none;
+    padding: 5px;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    ion-icon {
+        color: $white;
+        cursor: pointer;
+        height: 24px;
+        padding: 5px;
+        transition: 200ms ease all;
+        width: 24px;
+
+        &:hover {
+            border-radius: 10%;
+            background-color: transparentize($color: $white, $amount: 0.9);
+        }
+
+        &:active {
+            background-color: transparentize($color: $white, $amount: 0.8);
+        }
+    }
+}
+
+.add-movie__file-container {
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='white' stroke-width='2' stroke-dasharray='3%2c 6' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+    max-height: 100px;
+    max-width: 600px;
+    padding: 2rem 3rem;
+    position: relative;
+    transition: 300ms ease all;
+
+    p {
+        color: $white;
+        font-size: 16px;
+        font-weight: 400;
+
+        span {
+            font-weight: 300;
+            margin-right: 10px;
+            transform: rotateY(180deg) rotateZ(180deg);
+        }
+    }
+
+    input {
+        bottom: 0;
+        height: 100%;
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        z-index: 5;
+    }
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.add-movie__movie-title {
+    background: none;
+    border: none;
+    border-bottom: 1px solid $white;
+    color: $white;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    max-width: 248px;
+    padding-bottom: 10px;
+    text-align: center;
+    transition: 300ms ease all;
+    width: 100%;
+
+    &::placeholder {
+        color: $white;
+    }
+
+    &:focus {
+        border-bottom: 1px solid $primary;
+        outline: none;
+    }
+}
+
+.add-movie__loading-container {
+    color: $white;
+    text-align: left;
+    width: 100%;
+
+    button, .add-movie__ready {
+        animation: fadein 200ms ease-in-out backwards;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        float: right;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 4px;
+        padding: 1.5rem 0 0;
+        transition: 300ms ease all;
+        width: auto;
+    }
+
+    button:hover {
+        opacity: 0.7;
+    }
+
+    .add-movie__ready {
+        color: $primary;
+        cursor: initial;
+        font-weight: 400;
+    }
+}
+
+.add-movie__loading-bar-container {
+    border-bottom: 4px solid transparentize($color: $white, $amount: 0.5);
+    width: 100%;
+}
+
+.add-movie__loading-bar {
+    background-color: $primary;
+    height: 10px;
+    position: relative;
+    top: 7px;
+    transition: 500ms ease all;
+    width: 100%;
+}
+
+.add-movie__loading-container.add-movie__loading-failed {
+
+    span {
+        font-weight: 300;
+    }
+
+    .add-movie__loading-bar {
+        background-color: $error;
+    }
+}
+
+.add-movie__congrats, .add-movie__description {
+    color: $white;
+}
+
+.add-movie__congrats {
+    animation: fadein 400ms ease-in-out backwards;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.add-movie__description {
+    animation: fadein 400ms 200ms ease-in-out backwards;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.add-movie__logo {
+    .navbar__logo-start {
+        animation: moveup 600ms 0ms ease-in-out forwards;
+        transform: translateY(150px);
+}
+    
+    .navbar__logo-end {
+        animation: moveleft 800ms 200ms ease forwards, fadein 1200ms ease forwards;
+        transform: translateX(200px);
+        opacity: 0;
+    }
+}
+
+.add-movie__close-mobile {
+    display: none;
+}
+
+@media (max-width: $sm) {
+    .add-movie__container {
+        max-height: 100vh;
+        max-width: 100vw;
+        height: 100%;
+        z-index: 2;
+        position: fixed;
+        width: 100%;
+    }
+
+    .add-movie__logo {
+        display: none;
+    }
+
+    .add-movie__congrats {
+        margin-bottom: 2rem;
+    }
+
+    .add-movie__card {
+        max-height: 100%;
+        justify-content: space-around;
+        padding-top: 6rem;
+        max-width: 100%;
+    }
+
+    .add-movie__close-mobile {
+        background: none;
+        border: 1px solid transparentize($color: $white, $amount: 0.5);
+        color: $white;
+        display: block;
+        font-weight: 400;
+        margin-top: 1rem;
+        transition: 200ms ease all;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    .add-movie__close {
+        display: none;
+    }
+
+    .add-movie__file-container {
+        span {
+            display: none;
+        }
+
+        span.fa-paperclip {
+            display: inline-block;
+        }
+    }
+}
+
+@media (max-height: $xs) and (orientation: landscape) and (max-width: $sm) {
+
+    .add-movie__card {
+        padding: 2rem 3rem;
+    }
+
+    .add-movie__buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 1rem;
+        width: 100%;
+
+        button {
+            margin-top: 0;
+            max-width: 300px;
+        }
+    }
+}

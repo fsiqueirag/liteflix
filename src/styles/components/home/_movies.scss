@@ -1,0 +1,378 @@
+@mixin cards-animation ($delay, $duration, $name) {
+    animation: $duration $delay $name ease-in-out backwards;
+}
+
+.movies__list-container {
+    display: flex;
+    flex-direction: column;
+    float: right;
+    gap: 1.5rem;
+    height: auto;
+    padding-top: 4rem;
+    position: relative;
+}
+
+.movies__filter-button-container {
+    align-items: center;
+    animation: fadedown 400ms 1.8s ease backwards;
+    color: $white;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+
+    span {
+        font-weight: 200;
+    }
+
+}
+
+.movies__filter-button {
+    align-items: center;
+    background: none;
+    border: none;
+    color: $white;
+    cursor: pointer;
+    display: flex;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 400;
+    justify-content: center;
+    letter-spacing: 4px;
+    position: relative;
+    transition: 200ms ease all;
+    z-index: 2;
+    
+
+    &:hover {
+        opacity: 0.7;
+    }
+
+    &.dropdown-active {
+        span.fas {
+            transform: rotateZ(-180deg);
+        }
+    }
+
+    span.fas {
+        font-size: 14px;
+        font-weight: 400;
+        transition: 200ms ease all;
+    }
+}
+
+.movies__dropdown {
+    animation: fadein 200ms ease;
+    background-color: $dark-primary;
+    color: $white;
+    left: -12px;
+    padding: 1.2rem 1.5rem;
+    position: absolute;
+    right: -15px;
+    top: 95px;
+    z-index: 3;
+
+    .fa-caret-up {
+        color: $dark-primary;
+        font-size: 1.5rem;
+        position: absolute;
+        right: 34px;
+        top: -14px;
+    }
+
+    li {
+        cursor: pointer;
+        display: flex;
+        font-size: 16px;
+        font-weight: 200;
+        gap: 5px;
+        justify-content: space-between;
+        transition: 200ms ease all;
+        user-select: none;
+
+        &.selected {
+            font-weight: 700;
+        }
+
+        &:hover {
+            opacity: 0.7;
+        }
+
+        .fas {
+            animation: fadein 200ms ease;
+            font-weight: 400;
+        }
+
+        &:first-of-type {
+            margin-bottom: 1rem;
+        }
+
+        &.disabled {
+            cursor: initial;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+    }
+}
+
+.movies__card-container {
+    align-items: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px;
+    color: $white;
+    cursor: pointer;
+    display: flex;
+    gap: 15px;
+    height: 100%;
+    justify-content: flex-start;
+    max-height: 146px;
+    max-width: 220px;
+    min-height: 105px;
+    opacity: 1;
+    overflow: hidden;
+    padding: 10px;
+    position: relative;
+    transition: 300ms ease-in-out transform;
+    width: 220px;
+
+    
+
+    h3 {
+        font-weight: 300;
+        display: block;
+        position: relative;
+        text-align: left;
+        transition: 300ms ease all;
+        transform: translateX(50%);
+        z-index: 2;
+
+        span {
+            display: inline-block;
+            transform: translateX(-50%);
+            transition: 300ms ease all;
+        }
+    }
+
+    &::after, &::before {
+        background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.7) 100%);
+        bottom: -1px;
+        content: '';
+        left: -1px;
+        position: absolute;
+        right: -1px;
+        top: -1px;
+        transition: 300ms ease background;
+        z-index: 1;
+    }
+
+    &::before {
+        background: none;
+    }
+
+    &:hover {
+        transform: scale(1.05);
+
+        .movies__play-icon {
+            height: 24px;
+            left: 0;
+            margin-left: 10px;
+            padding-top: 1px;
+            transition: 300ms ease-in-out all;
+            width: 24px;
+            
+            ion-icon {
+                height: 12px;
+                width: 12px;
+            }
+        }
+
+        .movies__card-title-container {
+            bottom: 0;
+            height: calc(50% + 11.5px);
+            left: 55px;
+        }
+
+        h3 {
+            transform: translateX(0%);
+
+            span {
+                transform: translateX(0%);
+            }
+        }
+    
+        &::before {
+            background: transparentize($color: $dark-primary, $amount: 0.3);
+        }
+
+        footer {
+            opacity: 1;
+
+            .movies__rating, .movies__year {
+                opacity: 1;
+            }
+        }
+    }
+
+    footer {
+        align-items: center;
+        bottom: 10px;
+        display: flex;
+        font-size: 14px;
+        font-weight: 300;
+        justify-content: space-between;
+        left: 0;
+        opacity: 0;
+        padding: 0 20px;
+        position: absolute;
+        transition: 300ms ease-in-out all;
+        width: 100%;
+        z-index: 2;
+
+        .movies__rating, .movies__year {
+            opacity: 0;
+            transition: 500ms 500ms ease all;
+        }
+
+        .movies__rating {
+            align-items: center;
+            display: flex;
+            gap: 3px;
+            transition: 500ms 300ms ease all;
+
+            span {
+                color: $primary;
+                font-size: 0.6rem;
+            }
+        }
+    }
+}
+
+.movies__card-title-container {
+    bottom: 10px;
+    height: 23px;
+    left: 0;
+    position: absolute;
+    transition: 300ms ease all;
+    width: 100%;
+}
+
+.movies__play-icon {
+    align-items: center;
+    background-color: transparentize($color: $dark-primary, $amount: 0.5);
+    border: 1px $white solid;
+    border-radius: 100px;
+    color: $white;
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    left: 39%;
+    padding-top: 3px;
+    position: relative;
+    right: 0;
+    transition: 300ms ease-in-out all;
+    width: 40px;
+    z-index: 2;
+
+    ion-icon {
+        height: 20px;
+        left: 1px;
+        position: relative;
+        transition: 200ms ease all;
+        width: 20px;
+
+    }
+
+    .movies__filled-icon {
+        color: $black;
+        opacity: 0;
+        position: fixed;
+        transition: 300ms ease opacity;
+        
+    }
+
+
+    &:hover {
+        background-color: $primary;
+        border: 1px $black solid;
+        color: $black;  
+
+        ion-icon {
+            margin: auto;
+        }
+        
+        .movies__outline-icon {
+            display: none;
+        }
+
+        .movies__filled-icon {
+            opacity: 1;
+            position: initial;
+        }
+    }
+}
+
+.movies__card-container-0 {
+    @include cards-animation(2s, 600ms, fadedown);
+}
+
+.movies__card-container-1 {
+    @include cards-animation(2.3s, 700ms, faderight);
+}
+
+.movies__card-container-2 {
+    @include cards-animation(2.6s, 800ms, fadeleft);
+}
+
+.movies__card-container-3 {
+    @include cards-animation(3s, 1s, fadeup);
+}
+
+.movies__card-container-fast-0 {
+    @include cards-animation(0s, 600ms, fadedown);
+}
+
+.movies__card-container-fast-1 {
+    @include cards-animation(0.3s, 700ms, faderight);
+}
+
+.movies__card-container-fast-2 {
+    @include cards-animation(0.6s, 800ms, fadeleft);
+}
+
+.movies__card-container-fast-3 {
+    @include cards-animation(1s, 1s, fadeup);
+}
+
+@media (max-width: $sm) {
+    .movies__list-container {
+        max-width: 350px;
+        padding: 0 1rem 2rem;
+        width: 100%;
+    }
+
+    .movies__card-container {
+        height: 194px;
+        max-width: 350px;
+        width: 100%;
+    }
+
+    .movies__dropdown {
+        background-color: $dark-primary;
+        left: 15px;
+        right: 15px;
+        top: 35px;
+
+        .fa-caret-up {
+            display: none;
+        }
+    }
+
+    .movies__play-icon {
+        left: 43%;
+    }
+
+    .movies__filter-button-container {
+        margin-bottom: 10px;
+    }
+}
