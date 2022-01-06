@@ -55,7 +55,7 @@ export const AddMovieModal = ({ myMovies, setMyMovies }) => {
 
         if (storedMovies) {
             localStorage.setItem("myMovies", JSON.stringify([...storedMovies, newMovie]));
-            setMyMovies([...myMovies, newMovie]);
+            setMyMovies([newMovie, ...myMovies]);
         } else {
             localStorage.setItem("myMovies", JSON.stringify([newMovie]));
             setMyMovies([newMovie]);
