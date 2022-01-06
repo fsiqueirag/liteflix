@@ -73,11 +73,6 @@
                 height: 12px;
                 width: 12px;
             }
-
-            .movie-card__filled-icon, .movie-card__outline-icon {
-                align-items: center;
-                display: flex;
-            }
         }
 
         .movie-card__title-container {
@@ -143,6 +138,11 @@
             }
         }
     }
+}
+
+.movie-card__filled-icon, .movie-card__outline-icon {
+    align-items: center;
+    display: flex;
 }
 
 .movie-card__title-container {
