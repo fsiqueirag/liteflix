@@ -65,13 +65,18 @@
             height: 24px;
             left: 0;
             margin-left: 10px;
-            padding-top: 1px;
+            padding-top: 0;
             transition: 300ms ease-in-out all;
             width: 24px;
             
             ion-icon {
                 height: 12px;
                 width: 12px;
+            }
+
+            .movie-card__filled-icon, .movie-card__outline-icon {
+                align-items: center;
+                display: flex;
             }
         }
 
