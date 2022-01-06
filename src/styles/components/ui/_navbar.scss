@@ -126,11 +126,14 @@
 
 
 .navbar__profile-container {
+    align-items: center;
     animation: 300ms 2.8s fadein ease-out backwards;
     border-radius: 100px;
     border: 2px solid transparent;
     cursor: pointer;
+    display: flex;
     height: 42px;
+    justify-content: center;
     overflow: hidden;
     transition: 200ms ease all;
     width: 42px;
