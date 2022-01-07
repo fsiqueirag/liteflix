@@ -11,7 +11,7 @@ export const fetchMovies = async () => {
 const getTopMovie = async () => {
     const res = await fetch(`${endpoint}now_playing?api_key=${apiKey}`);
     const topMovie = await res.json();
-    return topMovie.results[0];
+    return topMovie.results[1];
 }
 
 const getPopularMovies = async () => {
