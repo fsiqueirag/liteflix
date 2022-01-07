@@ -253,8 +253,9 @@
 @media (max-width: $sm) {
 
     .movie-card__container {
-        height: 194px;
-        max-width: 350px;
+        height: 172px;
+        max-height: 172px;
+        max-width: 327px;
         width: 100%;
     }
 

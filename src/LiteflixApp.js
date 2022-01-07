@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { HomeScreen } from './components/home/HomeScreen';
-import { MoviesContext } from './context/MoviesContext';
 import { MoviesLoader } from './components/ui/MoviesLoader';
 import { Navbar } from './components/ui/Navbar';
+import { MoviesContext } from './context/MoviesContext';
 import { fetchMovies } from './helpers/fetchMovies';
 
 export const LiteflixApp = () => {
