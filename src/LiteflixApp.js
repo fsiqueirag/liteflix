@@ -13,6 +13,8 @@ export const LiteflixApp = () => {
     const [popularMovies, setPopularMovies] = useState(null);
     const [showAddMovie, setShowAddMovieModal] = useState(false);
 
+    // test
+
     useEffect(() => {
         (
             async () => {
