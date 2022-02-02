@@ -29,8 +29,6 @@ export const LiteflixApp = () => {
         )();
     }, []);
 
-
-    
     return (
         <MoviesContext.Provider value={{setShowAddMovieModal, popularMovies}}
         >
